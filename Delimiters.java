@@ -35,20 +35,17 @@ public class Delimiters {
      */
     public boolean isBalanced(ArrayList<String> delimiters)
     { /* to be implemented in part (b) */
-        boolean start = true;
         int open = 0;
         int close = 0;
         for (int i = 0; i < delimiters.size(); i ++) {
-            if (start && delimiters.get(i).equals(openDel)) {
-                start = false;
+            if (delimiters.get(i).equals(openDel)) {
                 open++;
 
             }
-            else if (!start && delimiters.get(i).equals(closeDel)){
-                start = true;
+            else if (delimiters.get(i).equals(closeDel)){
                 close++;
             }
-            else {
+            if (open < close) {
                 return false;
             }
         }
